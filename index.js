@@ -17,4 +17,6 @@ app.use("/files", express.static(path.resolve(__dirname, "uploads")));
 app.use(cors());
 app.use(express.json());
 app.use(Routes);
-app.listen(3100, () => console.log("your server is running at 3100"));
+app.listen(process.env.PORT || 3100, () =>
+  console.log("your server is running at 3100")
+);
