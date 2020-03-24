@@ -8,8 +8,10 @@ const upload = multer(uploadConfig);
 
 const SessionController = require("./controllers/SessionController");
 const PictureController = require("./controllers/PictureController");
+const AdminController = require('./controllers/AdminController')
 
-routes.post("/admin", SessionController.index);
+routes.post("/admins", AdminController.create);
+routes.post('/sessions', SessionController.create)
 routes.post("/pictures", upload.single("picture"), PictureController.store);
 routes.get("/pictures", PictureController.index);
 routes.delete("/pictures/:id/:picture", PictureController.delete);
